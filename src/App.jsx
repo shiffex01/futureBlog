@@ -35,14 +35,7 @@ export default function App() {
       content,
       author,
       date: new Date().toLocaleString(),
-    };
-
-      const deletePost = (index) => {
-  if (window.confirm("Are you sure you want to delete this post?")) {
-    const updatedPosts = posts.filter((_, i) => i !== index);
-    setPosts(updatedPosts);
-  }
-};
+    }; 
 
 
     setPosts([newPost, ...posts]); // Add new post at the top
@@ -50,6 +43,13 @@ export default function App() {
     setContent("");
     setAuthor("");
   };
+
+  const deletePost = (index) => {
+        if (window.confirm("Are you sure you want to delete this post?")) {
+          const updatedPosts = posts.filter((_, i) => i !== index);
+          setPosts(updatedPosts);
+        }
+    };
 
   return (
     <div className="min-h-screen bg-gray-900 text-gray-100 p-6">
@@ -97,6 +97,7 @@ export default function App() {
           <div
             key={index}
             className="bg-gray-800 p-6 rounded-2xl shadow-lg hover:shadow-cyan-700/30 transition"
+            onClick={() => deletePost(index)}
           >
             <h3 className="text-2xl text-cyan-300 font-semibold mb-2">{post.title}</h3>
             <p className="text-gray-300 mb-4">{post.content}</p>
@@ -107,11 +108,11 @@ export default function App() {
           </div>
         ))}
         <button
-  onClick={() => deletePost(index)}
-  className="mt-4 bg-red-600 hover:bg-red-700 text-white text-sm px-3 py-1 rounded transition"
->
-  🗑 Delete
-</button>
+          
+          className="mt-4 bg-red-600 hover:bg-red-700 text-white text-sm px-3 py-1 rounded transition"
+        >
+          🗑 Click on a card to Delete
+        </button>
 
       </div>
     </div>
