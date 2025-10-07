@@ -56,7 +56,7 @@ export default function App() {
       {/* Header */}
       <header className="text-center mb-8">
         <h1 className="text-4xl font-bold text-cyan-400">⚡ FutureBlog</h1>
-        <p className="text-gray-400 mt-2">A dynamic blog built with React & Tailwind</p>
+        <p className="text-gray-400 mt-2">A blog website to publish your articles</p>
       </header>
 
       {/* Add Post Form */}
